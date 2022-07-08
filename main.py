@@ -5,8 +5,6 @@ import os
 pg.mixer.init()
 pg.init()
 
-
-
 white = (255, 255, 255)
 red = (255, 0, 0)
 black = (0, 0, 0)
@@ -38,6 +36,7 @@ def text_screen(text, color, x, y):
 def plot_snake(window, color, snk_list, size):
     for x, y in snk_list:
         pg.draw.rect(window, color, [x, y, size, size])
+
 
 def welcome():
     g_exit = False
@@ -90,8 +89,8 @@ def gameloop():
             win.fill(white)
             win.blit(overback, (0, 0))
             text_screen("Press Enter to continue.", white, 180, 480)
-            text_screen("High Score: "+ str(hiscore), white, 180, 520)
-            text_screen("Your Score: "+ str(score), white, 180, 540)
+            text_screen("High Score: " + str(hiscore), white, 180, 520)
+            text_screen("Your Score: " + str(score), white, 180, 540)
 
             for i in pg.event.get():
                 if i.type == pg.QUIT:
@@ -148,10 +147,9 @@ def gameloop():
                 pg.mixer.music.load("over.mp3")
                 pg.mixer.music.play()
 
-
             win.fill(white)
             win.blit(gameback, (0, 0))
-            text_screen("Score: " + str(score) + "High score: "+str(hiscore), red, 5, 5)
+            text_screen("Score: " + str(score) + "High score: " + str(hiscore), red, 5, 5)
             pg.draw.rect(win, red, [food_x, food_y, snake_size, snake_size])
 
             plot_snake(win, black, snk_list, snake_size)
@@ -161,5 +159,6 @@ def gameloop():
 
     pg.quit()
     quit()
+
 
 welcome()
